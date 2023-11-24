@@ -1,0 +1,38 @@
+*** CORE FUNCTIONALITIES
+
+- Rock-paper-scissors mechanic
+ - choose option
+ - randomize option from computer
+ - determine winner
+
+- Score tracking
+ - add score
+ - crown winner on 3 wins
+
+- Restart game
+ - prompt and start anew.
+
+- Customization
+ - enter name
+
+
+*** ADDITIONAL FUNCTIONALITIES
+
+- Pop-up prompts
+
+- How to play
+
+- Menu screen
+ - start game
+ - about game
+
+
+*** EXTRA FUNCTIONALITIES
+
+- Battler Graphics
+ - Hero, Wizard
+ - Animations
+
+- Story Mode
+ - Intro
+ - Customization
