@@ -1,0 +1,326 @@
+@font-face {
+  font-family: "Monogram";
+  src: url("../assets/font/monogram.ttf");
+}
+
+:root {
+  font-size: 30px;
+
+  --main: rgb(44, 42, 42);
+  --mainBottom: rgb(29, 27, 27);
+  --mainBottomTrans: rgba(29, 27, 27, 0.9);
+  --bg: rgb(14, 14, 14);
+  --mainTop: rgb(54, 52, 52);
+  --contrast: white;
+  --color: rebeccapurple;
+
+  --border: 0.1rem;
+
+  --shadowSize: 0.15rem 0.15rem 0px;
+  --shadow: var(--shadowSize) var(--mainBottom);
+  --shadowDark: var(--shadowSize) black;
+
+  --pulse: pulsate 4s ease-in-out infinite;
+}
+
+@keyframes pulsate {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+* {
+  font-family: "Monogram";
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 0.05rem;
+  line-height: 0.8rem;
+  color: var(--contrast);
+
+  flex-basis: 0;
+}
+
+button {
+  text-transform: uppercase;
+  background-color: var(--mainTop);
+  box-shadow: var(--shadow);
+  border: var(--border) solid var(--contrast);
+}
+
+a {
+  color: var(--contrast);
+}
+
+body {
+  height: 100svh;
+  padding: 1rem;
+  background-color: var(--bg);
+}
+
+.game {
+  height: 100%;
+  border: 0.2rem solid var(--contrast);
+  position: relative;
+  background-color: var(--main);
+}
+
+.color {
+  background-color: var(--color);
+}
+
+/* ------------------------------------------------- */
+/* .customization-wrapper > h2 + .input-wrapper (> label + input) */
+
+.input-wrapper {
+  /* box-shadow: inset var(--shadowDark); */
+  background-color: var(--main);
+}
+
+input {
+  background-color: transparent;
+  color: var(--contrast);
+  border: none;
+}
+
+input:focus {
+  background-color: transparent;
+  outline: none;
+}
+
+.customization-wrapper button {
+  box-shadow: var(--shadowDark);
+}
+
+.max-width {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.swatch {
+  cursor: pointer;
+  border: 0.25rem solid var(--main);
+  box-shadow: var(--shadow);
+}
+
+.pick {
+  border: 0.25rem solid var(--contrast);
+}
+
+/* ------------------------------------------------- */
+/* .intro-wrapper > p */
+
+.intro-wrapper {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.intro-wrapper p:not(:first-child) {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.intro-wrapper p.fade-in {
+  opacity: 1;
+}
+
+.skip-intro {
+  width: 100%;
+  color: var(--bg);
+  text-align: center;
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+}
+
+.skip-intro::before {
+  content: "Triple tap to skip into battle";
+}
+
+@media (min-width: 768px) {
+  .skip-intro::before {
+    content: "Triple click to skip into battle";
+  }
+}
+
+/* ------------------------------------------------- */
+/* .popup-container > .popup > .close-popup + h2 + p (+ .popup-buttons-wrapper)*/
+
+.popup-container {
+  height: 100%;
+  width: 100%;
+
+  z-index: 1000;
+  background-color: var(--mainBottomTrans);
+}
+
+.popup {
+  background-color: var(--color);
+  border: var(--border) solid var(--contrast);
+}
+
+.popup > * {
+  display: inline-block;
+  margin: auto;
+}
+
+.popup button {
+  background-color: transparent;
+}
+
+.top-right-outter {
+  right: 0;
+  top: -1.6rem;
+}
+
+.top-right-inner {
+  right: 1.6rem;
+  top: 1.6rem;
+}
+
+/* icon buttons */
+button.close-popup,
+.game-nav-item {
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* ------------------------------------------------- */
+/* .player > .avatar + .info (> .health (> .heart + .arrow) + .name) */
+.player {
+  /* display: grid; bootstrap */
+  flex-grow: 1;
+  /* width: 100%; */
+}
+
+.player.p-computer {
+  grid-template-areas: "info avatar";
+  grid-template-columns: 2fr 1fr;
+}
+
+.player.p-user {
+  grid-template-areas: "avatar info";
+  grid-template-columns: 1fr 2fr;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  grid-area: avatar;
+}
+
+.info {
+  grid-area: info;
+}
+
+.health {
+  border-bottom: var(--border) solid var(--main);
+  position: relative;
+}
+
+.heart {
+  background-image: url("../assets/lucid-icons/Heart-16.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 16px;
+  flex-basis: 16px;
+}
+
+@media (min-width: 576px) {
+  .heart {
+    background-image: url("../assets/lucid-icons/Heart-32.png");
+    height: 32px;
+    flex-basis: 32px;
+  }
+}
+
+.remove-anim {
+  animation: flickerAnimation 0.5s ease-in-out;
+}
+
+@keyframes flickerAnimation {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.arrow {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  /* makes triangle shape */
+  border-top: 0.3rem solid transparent;
+  border-left: 0px solid transparent;
+  border-right: 1.5rem solid var(--main);
+}
+
+.player:first-of-type .arrow {
+  right: 0;
+  left: auto;
+
+  border-top: 0.3rem solid transparent;
+  border-right: 0px solid transparent;
+  border-left: 1.5rem solid var(--main);
+}
+
+/* ------------------------------------------------- */
+/* .battlestrip > .spellChoice + .vs */
+.battlestrip {
+  background-color: var(--color);
+}
+
+.battlestrip .spellChoice {
+  font-size: 1rem;
+}
+
+/* ------------------------------------------------- */
+/* .dialogue-box > .text-area (> .dialogue-text + .proceed-text) + .button-area */
+.dialogue-box {
+  background-color: var(--main);
+}
+
+.dialogue-wrapper > * {
+  width: 100%;
+}
+
+.text-area {
+  background-color: var(--mainTop);
+  box-shadow: inset var(--shadow);
+  height: 25svh;
+}
+
+.dialogue-text {
+  flex-grow: 1;
+}
+
+.proceed-text,
+.proceed-text > * {
+  opacity: 0.5;
+  font-size: smaller;
+  /* animation: var(--pulse); */
+}
+
+*:disabled {
+  opacity: 0.5;
+}
+
+.hide {
+  opacity: 0;
+}
