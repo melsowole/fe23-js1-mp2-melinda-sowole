@@ -227,7 +227,7 @@ function generateGameDOM() {
       button.setAttribute("type", "button");
       const img = createElement("img", "button-icon");
       button.append(img);
-      img.setAttribute("src", "assets/lucid-icons/" + item.icon);
+      img.setAttribute("src", "./assets/lucid-icons/" + item.icon);
       img.setAttribute("alt", item.name);
 
       button.addEventListener("click", () => {
@@ -613,7 +613,7 @@ function generatePopupDOM(title, txt, buttons) {
   ]);
   buttonClose.setAttribute("type", "button");
   const img = createElement("img", "button-icon");
-  img.setAttribute("src", "assets/lucid-icons/" + gameInfo.icons.close);
+  img.setAttribute("src", "./assets/lucid-icons/" + gameInfo.icons.close);
   img.setAttribute("alt", "Close popup");
   buttonClose.append(img);
 
