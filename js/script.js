@@ -424,7 +424,7 @@ function generateCustomizationDOM() {
 
   main.append(wrapper);
 
-  const heading = createElement("h2", ["pt-5", "pb-2", "fs-3"]);
+  const heading = createElement("h2", ["pt-4", "fs-6"]);
   wrapper.append(heading);
   heading.textContent = "Customize your hero";
 
@@ -450,7 +450,7 @@ function generateCustomizationDOM() {
       arrayName,
       "max-width",
       "m-auto",
-      "pb-3",
+      "pb-2",
     ]);
     const colorLabel = createElement("label", ["p-2"]);
     colorLabel.textContent = label + " :";
@@ -486,7 +486,7 @@ function generateCustomizationDOM() {
   const button = createElement("button", [
     "customization-continue-button",
     "p-2",
-    "mt-5",
+    "mt-3",
   ]);
   wrapper.append(button);
   button.setAttribute("type", "button");
